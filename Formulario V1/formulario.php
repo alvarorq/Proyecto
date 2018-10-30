@@ -32,7 +32,7 @@
                                 echo '>'.$value.'</option>';
                             }
                             ?>       
-                      </select>
+                      </select><!--asfjnwpariugfhepru-->
         <p>Codigo postal: <input type="text" name="cp" id="cp" value="<?php echo valorcampo('cp'); ?>">
         <p>Poblacion: <input type="text" name="poblacion" id="poblacion" value="<?php echo valorcampo('poblacion'); ?>">
         <p>Fecha de seleccion: <input type="date" name="fechaselec" id="fechaselec" value="<?php echo valorcampo('fechaselec'); ?>">
