@@ -50,6 +50,9 @@ else{
     if($errores){
         include "formulario.php";
     }
+    else{
+        include "insertarDatos.php";
+    }
 }
 
 
