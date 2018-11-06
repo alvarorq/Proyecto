@@ -6,41 +6,83 @@
     <title>Formulario v1.0</title>
 </head>
 <body>
-
     <?php
-    
     if($errores){   
     echo "<div style= border:solid>";
         foreach ($cadena_Errores as $key => $value) {
             echo "<p style=color:red;>".$value;
         }
     echo"</div>";    
-    } ?>
+    } 
+    ?>
 
     <form method="post">
-        <p>Descripcion: <input type="text" name="descripcion" id="descripcion" value="<?php echo valorcampo('descripcion'); ?>">
-        <p>Persona de contacto: <input type="text" name="contacto" id="contacto" value="<?php echo valorcampo('contacto'); ?>">
-        <p>Telefono de contacto: <input type="text" name="telefono" id="telefono" value="<?php echo valorcampo('telefono'); ?>">
-        <p>E-mail: <input type="text" name="email" id="email" value="<?php echo valorcampo('email'); ?>">
-        <p>Direccion: <input type="text" name="direccion" id="direccion" value="<?php echo valorcampo('direccion'); ?>">
-        <p>Provincia: <select name="provincia" id="provincia">
-                            <option value="----------">----------</option>
+        <table>
+            <tr>
+                <th>Descripcion: </th>
+                <td><input type="text" name="descripcion" id="descripcion" value="<?php echo valorcampo('descripcion'); ?>"></td>
+            </tr>
+            <tr>
+                <th>Persona de contacto: </th>
+                <td><input type="text" name="contacto" id="contacto" value="<?php echo valorcampo('contacto'); ?>"></td>
+            </tr>
+            <tr>
+                <th>Telefono de contacto: </th>
+                <td><input type="text" name="telefono" id="telefono" value="<?php echo valorcampo('telefono'); ?>"></td>
+            </tr>
+            <tr>
+                <th>E-mail: </th>
+                <td><input type="text" name="email" id="email" value="<?php echo valorcampo('email'); ?>"></td>
+            </tr>
+            <tr>
+                <th>Direccion: </th>
+                <td><input type="text" name="direccion" id="direccion" value="<?php echo valorcampo('direccion'); ?>"></td>
+            </tr>
+            <tr>
+                <th>Provincia: </th>
+                <td><select name="provincia" id="provincia">
+                        <option value="----------">----------</option>
                             <?php   
-                            foreach ($provincias as $key => $value) {
-                                echo '<option value="'.$key.'"';
-                                if(isset($_POST["provincia"])&&$_POST["provincia"]=="$key"){ echo 'selected';}
-                                echo '>'.$value.'</option>';
-                            }
+                                foreach ($provincias as $key => $value) {
+                                    echo '<option value="'.$key.'"';
+                                    if(isset($_POST["provincia"])&&$_POST["provincia"]=="$key"){ echo 'selected';}
+                                    echo '>'.$value.'</option>';
+                                }
                             ?>       
-                      </select><!--probando git-->
-        <p>Codigo postal: <input type="text" name="cp" id="cp" value="<?php echo valorcampo('cp'); ?>">
-        <p>Poblacion: <input type="text" name="poblacion" id="poblacion" value="<?php echo valorcampo('poblacion'); ?>">
-        <p>Fecha de seleccion: <input type="date" name="fechaselec" id="fechaselec" value="<?php echo valorcampo('fechaselec'); ?>">
-        <p>Psicologo encargado: <input type="text" name="psicologo" id="psicologo" value="<?php echo valorcampo('psicologo'); ?>">
-        <p>Estado de la oferta: <input type="text" name="estado" id="estado" value="<?php echo valorcampo('estado'); ?>">
-        <p>Candidato selecionado: <input type="text" name="candidato" id="candidato" value="<?php echo valorcampo('candidato'); ?>">
-        <p>Observaciones:<br><textarea name="observaciones" id="observaciones" cols="50" rows="10"><?=  Nl2br(valorcampo('observaciones')); ?></textarea>
-        <p><input type="submit" value="Enviar">
+                    </select><!--probando git--></td>
+            </tr>
+            <tr>
+                <th>Codigo postal: </th>
+                <td><input type="text" name="cp" id="cp" value="<?php echo valorcampo('cp'); ?>"></td>
+            </tr>
+            <tr>
+                <th>Poblacion: </th>
+                <td><input type="text" name="poblacion" id="poblacion" value="<?php echo valorcampo('poblacion'); ?>"></td>
+            </tr>
+            <tr>
+                <th>Fecha de seleccion: </th>
+                <td><input type="date" name="fechaselec" id="fechaselec" value="<?php echo valorcampo('fechaselec'); ?>"></td>
+            </tr>
+            <tr>
+                <th>Psicologo encargado: </th>
+                <td><input type="text" name="psicologo" id="psicologo" value="<?php echo valorcampo('psicologo'); ?>"></td>
+            </tr>
+            <tr>
+                <th>Estado de la oferta: </th>
+                <td><input type="text" name="estado" id="estado" value="<?php echo valorcampo('estado'); ?>"></td>
+            </tr>
+            <tr>
+                <th>Candidato selecionado: </th>
+                <td><input type="text" name="candidato" id="candidato" value="<?php echo valorcampo('candidato'); ?>"></td>
+            </tr>
+            <tr>
+                <th>Observaciones:</th>
+                <td><textarea name="observaciones" id="observaciones" cols="50" rows="10"><?=  Nl2br(valorcampo('observaciones')); ?></textarea></td>
+            </tr>
+            <tr>
+                <th><input type="submit" value="Enviar"></th>
+            </tr>
+        </table>
     </form>
 </body>
 </html>

@@ -51,23 +51,8 @@ else{
         include "formulario.php";
     }
     else{
-        include "insertarDatos.php";
+        insertarFormulario($conn,$_POST);
+        include "index.php";
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ?>
