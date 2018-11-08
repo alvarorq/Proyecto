@@ -5,15 +5,9 @@ function arrayProvincias($conn){
     $result = $conn->query($sqlquery);
     $provincias=[];
 
-    if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
-        
             $provincias[$row["cod"]]=$row["nombre"];
         }
-    } else {
-        echo "0 results";
-    }
-
     return $provincias;
 }
 
@@ -32,7 +26,7 @@ function comFecha($cfecha){
         return false;   
     }
     else{
-    $validornot=checkdate($stfecha[1],$stfecha[2],$stfecha[0]);
+        $validornot=checkdate($stfecha[1],$stfecha[2],$stfecha[0]);
     return  $validornot;
     }
 }
@@ -54,61 +48,26 @@ function insertarFormulario($conn){
          '$_POST[observaciones]')";
     
         mysqli_query($conn,$sql);
-    
 }
 
 function obtenerProvincia($conn, $num){
-    $sql="select nombre from tbl_provincias where cod=$num";
+    $provincias=arrayProvincias($conn);
     $nombre;
-    $result = $conn->query($sql);
-
-    if ($result->num_rows > 0) {
-        while($row = $result->fetch_assoc()) {
-        $nombre=$row["nombre"];    
-        }
-    } else {
-        echo "0 results";
-    }
+        $nombre=$provincias[$num];    
 return $nombre;
 }
 
 function obtenerOfertas($conn){
-$sql="select * from ofertas";
-$ofertas=[];
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
-        $ofertas[$row["idofertas"]]=[
-            "Descripcion"=>$row["descripcion"],
-            "Contacto"=>$row["personaContacto"],
-            "Telefono"=>$row["telefonoContacto"],
-            "Email"=>$row["email"],
-            "Direccion"=>$row["direccion"],
-            "Poblacion"=>$row["poblacion"],
-            "Codigo Postal"=>$row["codigoPostal"],
-            "Provincia"=>obtenerProvincia($conn,$row["provincia"]),
-            "Estado"=>$row["estadoOferta"],
-            "Fecha de Creacion"=>$row["fechaCreacion"],
-            "Fecha de Confirmacion"=>$row["FechaConfirmacion"],
-            "Psicologo"=>$row["psicologo"],
-            "Candidato"=>$row["candidato"],
-            "Anotaciones"=>$row["anotaciones"],
-       ];       
-    }
-} else {
-    echo "0 results";
-}
-
-return $ofertas;
-}
-
-function vistaOfertas($conn){
-    foreach ($ofertas as $key => $value) {
-        
-            # code...
+    $sql="select * from ofertas";
+    $ofertas=[];
+    $result = $conn->query($sql);
+        while($row = $result->fetch_assoc()) {
+            $ofertas[]=$row;     
         }
-    }
+    return $ofertas;
 }
 
+function ListaOfertas($ofertas){
+   include "listaofertas.php";
+}
 ?>

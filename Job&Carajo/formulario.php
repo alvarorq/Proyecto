@@ -8,11 +8,11 @@
 <body>
     <?php
     if($errores){   
-    echo "<div style= border:solid>";
-        foreach ($cadena_Errores as $key => $value) {
-            echo "<p style=color:red;>".$value;
-        }
-    echo"</div>";    
+        echo "<div style= border:solid>";
+            foreach ($cadena_Errores as $key => $value) {
+                echo "<p style=color:red;>".$value;
+            }
+        echo"</div>";    
     } 
     ?>
 

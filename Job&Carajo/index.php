@@ -9,5 +9,6 @@
     <h1>Job & Carajo</h1>
 
     <a href="formulario-v1.php">Formulario ofertas</a>
+    <a href="vistaOfertas.php">Lista de ofertas</a>
 </body>
 </html>
