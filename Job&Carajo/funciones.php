@@ -1,5 +1,5 @@
 <?php
-
+//DEVUELVE ARRAY DE PROVINCIAS
 function arrayProvincias($conn){
     $sqlquery = "SELECT * FROM tbl_provincias";
     $result = $conn->query($sqlquery);
@@ -11,12 +11,14 @@ function arrayProvincias($conn){
     return $provincias;
 }
 
+//PARA NO PERDER LO RELLENADO EN EL FORMULARIO AL COMETER ERRORES EN LOS DATOS
 function valorcampo($campo){
     if(isset($_POST[$campo])){   
         return $_POST[$campo];
     }
 }
 
+//COMPRUEBA LA FECHA SI ES CORRECTA Y SI ESTA EN EL ORDEN CORRECTO
 function comFecha($cfecha){
     $stfecha= explode("-",$cfecha);
     if (count($stfecha)!=3){
@@ -31,6 +33,7 @@ function comFecha($cfecha){
     }
 }
 
+//VERIFICA SI EL EMAIL RESPETA EL FORMATO  ALGO@ALGO.ES
 function validarEmail($email){
     if(filter_var( $email , FILTER_VALIDATE_EMAIL)){}
         else{
@@ -39,6 +42,7 @@ function validarEmail($email){
 		}
 }
 
+//INSERTAR DATOS DEL FORMULARIO 
 function insertarFormulario($conn){
         $sql="INSERT INTO ofertas (
         descripcion, personaContacto, telefonoContacto, email, direccion, poblacion, codigoPostal, provincia, estadoOferta,
@@ -50,6 +54,7 @@ function insertarFormulario($conn){
         mysqli_query($conn,$sql);
 }
 
+//DADO EL PARAMETRO $NUM = CODIGO DE LA PROVINCIA Y USANDO LA FUNCION DE ARRAY DE OFERTAS OBTIENE EL NOMBRE DE LA PROVINCIA
 function obtenerProvincia($conn, $num){
     $provincias=arrayProvincias($conn);
     $nombre;
@@ -57,6 +62,7 @@ function obtenerProvincia($conn, $num){
 return $nombre;
 }
 
+//OBTIENE TODAS LAS OFERTAS DE LA TABLA Y ME LAS DEVUELVE EN UN ARRAY
 function obtenerOfertas($conn){
     $sql="select * from ofertas";
     $ofertas=[];
@@ -67,7 +73,9 @@ function obtenerOfertas($conn){
     return $ofertas;
 }
 
+//LLAMA A LA VISTA DE OFERTAS
 function ListaOfertas($ofertas){
-   include "listaofertas.php";
+   include "vistaOfertas.php";
 }
+
 ?>
