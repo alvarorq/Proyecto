@@ -20,23 +20,23 @@
         <table>
             <tr>
                 <th>Descripcion: </th>
-                <td><input type="text" name="descripcion" id="descripcion" value="<?php echo valorcampo('descripcion'); ?>"></td>
+                <td><input type="text" name="descripcion" id="descripcion" value="<?=valorcampo('descripcion')?>"></td>
             </tr>
             <tr>
                 <th>Persona de contacto: </th>
-                <td><input type="text" name="contacto" id="contacto" value="<?php echo valorcampo('contacto'); ?>"></td>
+                <td><input type="text" name="contacto" id="contacto" value="<?=valorcampo('contacto'); ?>"></td>
             </tr>
             <tr>
                 <th>Telefono de contacto: </th>
-                <td><input type="text" name="telefono" id="telefono" value="<?php echo valorcampo('telefono'); ?>"></td>
+                <td><input type="text" name="telefono" id="telefono" value="<?=valorcampo('telefono'); ?>"></td>
             </tr>
             <tr>
                 <th>E-mail: </th>
-                <td><input type="text" name="email" id="email" value="<?php echo valorcampo('email'); ?>"></td>
+                <td><input type="text" name="email" id="email" value="<?=valorcampo('email'); ?>"></td>
             </tr>
             <tr>
                 <th>Direccion: </th>
-                <td><input type="text" name="direccion" id="direccion" value="<?php echo valorcampo('direccion'); ?>"></td>
+                <td><input type="text" name="direccion" id="direccion" value="<?=valorcampo('direccion'); ?>"></td>
             </tr>
             <tr>
                 <th>Provincia: </th>
@@ -53,27 +53,27 @@
             </tr>
             <tr>
                 <th>Codigo postal: </th>
-                <td><input type="text" name="cp" id="cp" value="<?php echo valorcampo('cp'); ?>"></td>
+                <td><input type="text" name="cp" id="cp" value="<?=valorcampo('cp'); ?>"></td>
             </tr>
             <tr>
                 <th>Poblacion: </th>
-                <td><input type="text" name="poblacion" id="poblacion" value="<?php echo valorcampo('poblacion'); ?>"></td>
+                <td><input type="text" name="poblacion" id="poblacion" value="<?=valorcampo('poblacion'); ?>"></td>
             </tr>
             <tr>
                 <th>Fecha de seleccion: </th>
-                <td><input type="date" name="fechaselec" id="fechaselec" value="<?php echo valorcampo('fechaselec'); ?>"></td>
+                <td><input type="date" name="fechaselec" id="fechaselec" value="<?=valorcampo('fechaselec'); ?>"></td>
             </tr>
             <tr>
                 <th>Psicologo encargado: </th>
-                <td><input type="text" name="psicologo" id="psicologo" value="<?php echo valorcampo('psicologo'); ?>"></td>
+                <td><input type="text" name="psicologo" id="psicologo" value="<?=valorcampo('psicologo'); ?>"></td>
             </tr>
             <tr>
                 <th>Estado de la oferta: </th>
-                <td><input type="text" name="estado" id="estado" value="<?php echo valorcampo('estado'); ?>"></td>
+                <td><input type="text" name="estado" id="estado" value="<?=valorcampo('estado'); ?>"></td>
             </tr>
             <tr>
                 <th>Candidato selecionado: </th>
-                <td><input type="text" name="candidato" id="candidato" value="<?php echo valorcampo('candidato'); ?>"></td>
+                <td><input type="text" name="candidato" id="candidato" value="<?=valorcampo('candidato'); ?>"></td>
             </tr>
             <tr>
                 <th>Observaciones:</th>
