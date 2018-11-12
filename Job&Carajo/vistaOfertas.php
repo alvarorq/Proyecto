@@ -31,7 +31,7 @@
                 <td><?=obtenerProvincia($conn, $oferta['provincia'])?></td>
                 <td><?=$oferta['estadoOferta']?></td>
                 <td><?=$oferta['fechaCreacion']?></td>
-                <td><?=$oferta['fechaConfirmacion']?></td>
+                <td><?=$oferta['FechaConfirmacion']?></td>
                 <td><a href="borrar.php">Borrar</a>/ <a href="detalles.php">Mas detalle</a>/ <a href="modificar.php">Modificar</a></td>
             </tr>
             <?php endforeach;?>

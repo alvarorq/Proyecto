@@ -1,7 +1,7 @@
 <?php
     include "connexion.php";
     include "funciones.php";
-    $ofertas=obtenerOfertas($conn);
+    $ofertas=detalleOferta($conn, $id);
 ?>
 <!DOCTYPE html>
 <html>

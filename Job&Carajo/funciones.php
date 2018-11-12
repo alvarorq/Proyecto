@@ -73,6 +73,13 @@ function obtenerOfertas($conn){
     return $ofertas;
 }
 
+//OBTIENE DETALLES DE SOLO UNA OFERTA
+function detalleOferta($conn, $id){
+    $sql= $conn->prepare("SELECT * FROM ofertas WHERE idoferta=(?)");
+    $sql->bind_param('i',$id);
+    $sql->execute();
+}
+
 //LLAMA A LA VISTA DE OFERTAS
 function ListaOfertas($ofertas){
    include "vistaOfertas.php";
