@@ -1,10 +1,10 @@
 <?php 
-include "connexion.php";
+require "connexion.php";
 include "funciones.php";
 
 $errores=false;
 $cadena_Errores=[];
-$provincias=arrayProvincias($conn);
+$provincias=arrayProvincias();
 
 if(!$_POST){
     include "formulario.php";
@@ -51,7 +51,7 @@ else{
         include "formulario.php";
     }
     else{
-        insertarFormulario($conn,$_POST);
+        insertarFormulario($_POST);
         include "index.php";
     }
 }

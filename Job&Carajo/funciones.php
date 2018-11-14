@@ -1,8 +1,12 @@
 <?php
+
+require 'connexion.php';
+
 //DEVUELVE ARRAY DE PROVINCIAS
-function arrayProvincias($conn){
+function arrayProvincias(){
+    $conn=Db::getInstance();
     $sqlquery = "SELECT * FROM tbl_provincias";
-    $result = $conn->query($sqlquery);
+    $result = $conn->ejecutar($sqlquery);
     $provincias=[];
 
         while($row = $result->fetch_assoc()) {
@@ -43,7 +47,8 @@ function validarEmail($email){
 }
 
 //INSERTAR DATOS DEL FORMULARIO 
-function insertarFormulario($conn){
+function insertarFormulario(){
+    $conn=Db::getInstance();
         $sql="INSERT INTO ofertas (
         descripcion, personaContacto, telefonoContacto, email, direccion, poblacion, codigoPostal, provincia, estadoOferta,
         FechaConfirmacion, psicologo, candidato, anotaciones) 
@@ -51,22 +56,23 @@ function insertarFormulario($conn){
          '$_POST[cp]', '$_POST[provincia]', '$_POST[estado]', '$_POST[fechaselec]', '$_POST[psicologo]', '$_POST[candidato]',
          '$_POST[observaciones]')";
     
-        mysqli_query($conn,$sql);
+        $conn->ejecutar($sql);
 }
 
 //DADO EL PARAMETRO $NUM = CODIGO DE LA PROVINCIA Y USANDO LA FUNCION DE ARRAY DE OFERTAS OBTIENE EL NOMBRE DE LA PROVINCIA
-function obtenerProvincia($conn, $num){
-    $provincias=arrayProvincias($conn);
+function obtenerProvincia($num){
+    $provincias=arrayProvincias();
     $nombre;
         $nombre=$provincias[$num];    
 return $nombre;
 }
 
 //OBTIENE TODAS LAS OFERTAS DE LA TABLA Y ME LAS DEVUELVE EN UN ARRAY
-function obtenerOfertas($conn){
+function obtenerOfertas(){
+    $conn=Db::getInstance();
     $sql="select * from ofertas";
     $ofertas=[];
-    $result = $conn->query($sql);
+    $result = $conn->ejecutar($sql);
         while($row = $result->fetch_assoc()) {
             $ofertas[]=$row;     
         }
@@ -74,7 +80,8 @@ function obtenerOfertas($conn){
 }
 
 //OBTIENE DETALLES DE SOLO UNA OFERTA
-function detalleOferta($conn, $id){
+function detalleOferta($id){
+    $conn=Db::getInstance();
     $sql= $conn->prepare("SELECT * FROM ofertas WHERE idoferta=(?)");
     $sql->bind_param('i',$id);
     $sql->execute();

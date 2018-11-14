@@ -1,7 +1,6 @@
 <?php
-    include "connexion.php";
     include "funciones.php";
-    $ofertas=obtenerOfertas($conn);
+    $ofertas=obtenerOfertas();
 ?>
 <!DOCTYPE html>
 <html>
@@ -28,7 +27,7 @@
                 <td><?=$oferta['descripcion']?></td>
                 <td><?=$oferta['personaContacto']?></td>
                 <td><?=$oferta['telefonoContacto']?></td>
-                <td><?=obtenerProvincia($conn, $oferta['provincia'])?></td>
+                <td><?=obtenerProvincia($oferta['provincia'])?></td>
                 <td><?=$oferta['estadoOferta']?></td>
                 <td><?=$oferta['fechaCreacion']?></td>
                 <td><?=$oferta['FechaConfirmacion']?></td>
