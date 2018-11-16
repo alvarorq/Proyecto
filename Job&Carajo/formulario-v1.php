@@ -1,5 +1,4 @@
 <?php 
-require "connexion.php";
 include "funciones.php";
 
 $errores=false;

@@ -1,7 +1,7 @@
 <?php
-    include "connexion.php";
     include "funciones.php";
-    $ofertas=detalleOferta($conn, $id);
+    $id=2;
+    $ofertas=detalleOferta($id);
 ?>
 <!DOCTYPE html>
 <html>
@@ -44,7 +44,7 @@
                 </tr>
                 <tr>
                 <th>Provincia</th>
-                    <td><?=obtenerProvincia($conn, $oferta['provincia'])?></td>
+                    <td><?=obtenerProvincia($oferta['provincia'])?></td>
                 </tr>
                 <tr>    <th>Estado de la oferta</th>
                     <td><?=$oferta['estadoOferta']?></td>

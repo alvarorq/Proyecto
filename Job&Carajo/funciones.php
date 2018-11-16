@@ -6,10 +6,10 @@ require 'connexion.php';
 function arrayProvincias(){
     $conn=Db::getInstance();
     $sqlquery = "SELECT * FROM tbl_provincias";
-    $result = $conn->ejecutar($sqlquery);
+    $result = $conn->db->query($sqlquery);
     $provincias=[];
 
-        while($row = $result->fetch_assoc()) {
+        while($row = $result->fetch(PDO::FETCH_ASSOC)) {
             $provincias[$row["cod"]]=$row["nombre"];
         }
     return $provincias;
@@ -56,7 +56,7 @@ function insertarFormulario(){
          '$_POST[cp]', '$_POST[provincia]', '$_POST[estado]', '$_POST[fechaselec]', '$_POST[psicologo]', '$_POST[candidato]',
          '$_POST[observaciones]')";
     
-        $conn->ejecutar($sql);
+        $conn->db->query($sql);
 }
 
 //DADO EL PARAMETRO $NUM = CODIGO DE LA PROVINCIA Y USANDO LA FUNCION DE ARRAY DE OFERTAS OBTIENE EL NOMBRE DE LA PROVINCIA
@@ -72,8 +72,8 @@ function obtenerOfertas(){
     $conn=Db::getInstance();
     $sql="select * from ofertas";
     $ofertas=[];
-    $result = $conn->ejecutar($sql);
-        while($row = $result->fetch_assoc()) {
+    $result = $conn->db->query($sql);
+        while($row = $result->fetch(PDO::FETCH_ASSOC)) {
             $ofertas[]=$row;     
         }
     return $ofertas;
@@ -82,9 +82,12 @@ function obtenerOfertas(){
 //OBTIENE DETALLES DE SOLO UNA OFERTA
 function detalleOferta($id){
     $conn=Db::getInstance();
-    $sql= $conn->prepare("SELECT * FROM ofertas WHERE idoferta=(?)");
-    $sql->bind_param('i',$id);
+    $sql= $conn->db->prepare('SELECT * FROM ofertas WHERE idofertas=?');
+    $sql->bindParam(1, $id, PDO::PARAM_INT);
     $sql->execute();
+    $arr = $sql->fetchAll(PDO::FETCH_ASSOC);
+    
+    return $arr;
 }
 
 //LLAMA A LA VISTA DE OFERTAS
