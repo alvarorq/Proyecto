@@ -90,6 +90,18 @@ function detalleOferta($id){
     return $arr;
 }
 
+//BORRA UNA OFERTA DETERMINADA
+function borrarOferta($id){
+    $conn = Db::getInstance();
+    $sql = "DELETE FROM ofertas WHERE idofertas=?";
+    $sentencia = $conn->db->prepare($sql);
+    $sentencia->bindParam(1, $id, PDO::PARAM_INT);
+    $sentencia->execute();
+    $arr = $sql->fetchAll(PDO::FETCH_ASSOC);
+    
+    return $arr;
+}
+
 //LLAMA A LA VISTA DE OFERTAS
 function ListaOfertas($ofertas){
    include "vistaOfertas.php";

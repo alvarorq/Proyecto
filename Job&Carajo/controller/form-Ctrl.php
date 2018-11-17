@@ -1,12 +1,13 @@
 <?php 
-include "funciones.php";
+include 'constantes.php';
+include(MODEL_PATH.'funciones.php');
 
 $errores=false;
 $cadena_Errores=[];
 $provincias=arrayProvincias();
 
 if(!$_POST){
-    include "formulario.php";
+    include(VIEW_PATH.'formulario.php');
 }
 else{
     
@@ -47,11 +48,11 @@ else{
     }
 
     if($errores){
-        include "formulario.php";
+        include(VIEW_PATH.'formulario.php');
     }
     else{
         insertarFormulario($_POST);
-        include "index.php";
+        include(CTRL_PATH.'index.php');
     }
 }
 ?>

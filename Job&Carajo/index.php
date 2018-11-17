@@ -1,14 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Job&Carajo</title>
-</head>
-<body>
-    <h1>Job & Carajo</h1>
 
-    <a href="formulario-v1.php">Formulario ofertas</a>
-    <a href="vistaOfertas.php">Lista de ofertas</a>
-</body>
-</html>
+<?php
+/* 
+ * Fichero que llama al controlador 'inicio.php' 
+ * usando una redirección
+ * 
+ * Se envía una cabecera para que cargue otra página. Hay que hacerlo así
+ * pues en otro caso tendríamos problemas para crear los enlaces URL de las
+ * diferentes páginas
+ */
+header('Location: controller/inicio.php');
