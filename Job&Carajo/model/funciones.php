@@ -2,19 +2,6 @@
 
 require 'connexion.php';
 
-//DEVUELVE ARRAY DE PROVINCIAS
-function arrayProvincias(){
-    $conn=Db::getInstance();
-    $sqlquery = "SELECT * FROM tbl_provincias";
-    $result = $conn->db->query($sqlquery);
-    $provincias=[];
-
-        while($row = $result->fetch(PDO::FETCH_ASSOC)) {
-            $provincias[$row["cod"]]=$row["nombre"];
-        }
-    return $provincias;
-}
-
 //PARA NO PERDER LO RELLENADO EN EL FORMULARIO AL COMETER ERRORES EN LOS DATOS
 function valorcampo($campo){
     if(isset($_POST[$campo])){   
@@ -59,7 +46,20 @@ function insertarFormulario(){
         $conn->db->query($sql);
 }
 
-//DADO EL PARAMETRO $NUM = CODIGO DE LA PROVINCIA Y USANDO LA FUNCION DE ARRAY DE OFERTAS OBTIENE EL NOMBRE DE LA PROVINCIA
+//DEVUELVE ARRAY DE PROVINCIAS
+function arrayProvincias(){
+    $conn=Db::getInstance();
+    $sqlquery = "SELECT * FROM tbl_provincias";
+    $result = $conn->db->query($sqlquery);
+    $provincias=[];
+
+        while($row = $result->fetch(PDO::FETCH_ASSOC)) {
+            $provincias[$row["cod"]]=$row["nombre"];
+        }
+    return $provincias;
+}
+
+//DADO EL PARAMETRO $NUM = CODIGO DE LA PROVINCIA Y USANDO LA FUNCION DE ARRAY DE PROVINCIAS OBTIENE EL NOMBRE DE LA PROVINCIA
 function obtenerProvincia($num){
     $provincias=arrayProvincias();
     $nombre;
