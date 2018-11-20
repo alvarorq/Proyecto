@@ -7,9 +7,9 @@
 </head>
 <body>
     <?php
-    if($errores){   
+    if($errores->HayErrores()){   
         echo "<div style= border:solid>";
-            foreach ($cadena_Errores as $key => $value) {
+            foreach ($lista_errores as $key => $value) {
                 echo "<p style=color:red;>".$value;
             }
         echo"</div>";    
@@ -41,7 +41,7 @@
             <tr>
                 <th>Provincia: </th>
                 <td><select name="provincia" id="provincia">
-                        <option value="----------">----------</option>
+                        <option value="------------------">------------------</option>
                             <?php   
                                 foreach ($provincias as $key => $value) {
                                     echo '<option value="'.$key.'"';

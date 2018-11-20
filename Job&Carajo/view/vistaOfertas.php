@@ -1,7 +1,3 @@
-<?php
-    include "funciones.php";
-    $ofertas=obtenerOfertas();
-?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -31,7 +27,7 @@
                 <td><?=$oferta['estadoOferta']?></td>
                 <td><?=$oferta['fechaCreacion']?></td>
                 <td><?=$oferta['FechaConfirmacion']?></td>
-                <td><a href="borrar.php">Borrar</a>/ <a href="detalles.php">Mas detalle</a>/ <a href="modificar.php">Modificar</a></td>
+                <td><a href="confirmar_ctrl.php?a=<?= $oferta['idofertas']?>">Borrar</a>/ <a href="detalles_ctrl.php?a=<?= $oferta['idofertas']?>">Mas detalle</a>/ <a href="modificar.php">Modificar</a></td>
             </tr>
             <?php endforeach;?>
         </table>

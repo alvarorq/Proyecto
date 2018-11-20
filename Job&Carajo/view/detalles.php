@@ -1,8 +1,3 @@
-<?php
-    include "funciones.php";
-    $id=2;
-    $ofertas=detalleOferta($id);
-?>
 <!DOCTYPE html>
 <html>
     <head>
