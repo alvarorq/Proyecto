@@ -103,8 +103,19 @@ function borrarOferta($id){
 }
 
 //LLAMA A LA VISTA DE OFERTAS
-function ListaOfertas($ofertas){
-   include "vistaOfertas.php";
+function updateTable($id){
+   $conn = Db::getInstance();
+   $sql = "UPDATE ofertas SET descripcion='$_POST[descripcion]', personaContacto='$_POST[contacto]',
+           telefonoContacto='$_POST[telefono]',email='$_POST[email]', direccion='$_POST[direccion]',
+           poblacion='$_POST[poblacion]', codigoPostal='$_POST[cp]',provincia='$_POST[provincia]',
+           estadoOferta='$_POST[estado]', FechaConfirmacion='$_POST[fechaselec]', psicologo='$_POST[psicologo]',
+           candidato='$_POST[candidato]', anotaciones='$_POST[observaciones]'
+           WHERE idOfertas = ?";
+
+    $sentencia = $conn->db->prepare($sql);
+    $sentencia->bindParam(1, $id, PDO::PARAM_INT);
+    $sentencia->execute();
+
 }
 
 ?>
