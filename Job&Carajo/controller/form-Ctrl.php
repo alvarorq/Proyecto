@@ -20,7 +20,8 @@ else{
         include(VIEW_PATH.'formulario.php');
     }
     else{
-        insertarFormulario($_POST);
+        $datos=$_POST;
+        insertarFormulario($datos);
         include(CTRL_PATH.'inicio.php');
     }
 }

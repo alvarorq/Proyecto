@@ -34,14 +34,14 @@ function validarEmail($email){
 }
 
 //INSERTAR DATOS DEL FORMULARIO 
-function insertarFormulario(){
+function insertarFormulario($datos){
     $conn=Db::getInstance();
         $sql="INSERT INTO ofertas (
         descripcion, personaContacto, telefonoContacto, email, direccion, poblacion, codigoPostal, provincia, estadoOferta,
         FechaConfirmacion, psicologo, candidato, anotaciones) 
-         VALUES ('$_POST[descripcion]', '$_POST[contacto]', '$_POST[telefono]', '$_POST[email]', '$_POST[direccion]', '$_POST[poblacion]',
-         '$_POST[cp]', '$_POST[provincia]', '$_POST[estado]', '$_POST[fechaselec]', '$_POST[psicologo]', '$_POST[candidato]',
-         '$_POST[observaciones]')";
+         VALUES ('$datos[descripcion]', '$datos[contacto]', '$datos[telefono]', '$datos[email]', '$datos[direccion]', '$datos[poblacion]',
+         '$datos[cp]', '$datos[provincia]', '$datos[estado]', '$datos[fechaselec]', '$datos[psicologo]', '$datos[candidato]',
+         '$datos[observaciones]')";
     
         $conn->db->query($sql);
 }
@@ -85,9 +85,9 @@ function detalleOferta($id){
     $sql= $conn->db->prepare('SELECT * FROM ofertas WHERE idofertas=?');
     $sql->bindParam(1, $id, PDO::PARAM_INT);
     $sql->execute();
-    $arr = $sql->fetchAll(PDO::FETCH_ASSOC);
+    $reg = $sql->fetch(PDO::FETCH_ASSOC);
     
-    return $arr;
+    return $reg;
 }
 
 //BORRA UNA OFERTA DETERMINADA
@@ -102,14 +102,14 @@ function borrarOferta($id){
     return $arr;
 }
 
-//LLAMA A LA VISTA DE OFERTAS
-function updateTable($id){
+//MODIFICA LA TABLA DE OFERTAS
+function updateTable($id, $datos){
    $conn = Db::getInstance();
-   $sql = "UPDATE ofertas SET descripcion='$_POST[descripcion]', personaContacto='$_POST[contacto]',
-           telefonoContacto='$_POST[telefono]',email='$_POST[email]', direccion='$_POST[direccion]',
-           poblacion='$_POST[poblacion]', codigoPostal='$_POST[cp]',provincia='$_POST[provincia]',
-           estadoOferta='$_POST[estado]', FechaConfirmacion='$_POST[fechaselec]', psicologo='$_POST[psicologo]',
-           candidato='$_POST[candidato]', anotaciones='$_POST[observaciones]'
+   $sql = "UPDATE ofertas SET descripcion='$datos[descripcion]', personaContacto='$datos[contacto]',
+           telefonoContacto='$datos[telefono]',email='$datos[email]', direccion='$datos[direccion]',
+           poblacion='$datos[poblacion]', codigoPostal='$datos[cp]',provincia='$datos[provincia]',
+           estadoOferta='$datos[estado]', FechaConfirmacion='$datos[fechaselec]', psicologo='$datos[psicologo]',
+           candidato='$datos[candidato]', anotaciones='$datos[observaciones]'
            WHERE idOfertas = ?";
 
     $sentencia = $conn->db->prepare($sql);
@@ -117,5 +117,19 @@ function updateTable($id){
     $sentencia->execute();
 
 }
+
+//DEVUELVE UN RANGO DE REGISTROS DE LA BASE DE DATOS DEFINIDO POR $INICIO Y $REGSXPAG
+function listapaginacion($inicio, $regsxpag) {
+    $conn = Db::getInstance();
+    $sql = "SELECT SQL_CALC_FOUND_ROWS * FROM ofertas LIMIT $inicio, $regsxpag";
+        
+    $registros = $conn->db->prepare($sql);
+    //Ejecutamos la consulta...
+    $registros->execute();
+    //Almacenamos en una variable los registros obtenidos de la consulta
+    $registros = $registros->fetchAll(PDO::FETCH_ASSOC);
+
+    return $registros;;
+  }
 
 ?>

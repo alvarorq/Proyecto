@@ -8,7 +8,7 @@
     <body>
         
         <table border="solid">
-            <?php foreach($ofertas as $key => $oferta):?>
+
                 <tr>
                     <th>Descripcion</th>
                     <td><?=$oferta['descripcion']?></td>
@@ -63,8 +63,6 @@
                     <th>Anotaciones</th>
                     <td><?=$oferta['anotaciones']?></td>
                 </tr>
-                
-            <?php endforeach;?>
         </table>
 
     </body>

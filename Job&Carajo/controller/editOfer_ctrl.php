@@ -25,6 +25,15 @@ if(!$_POST){
     $_POST['estado']=$oferta[0]['estadoOferta'];
     $_POST['candidato']=$oferta[0]['candidato'];
     $_POST['observaciones']=$oferta[0]['anotaciones'];
+
+/*OTRA OPCION
+ *   $mapaCampos=[
+ *       'descipcion'=>'descripcion', 
+ *       'contacto'=>'contacto']
+ *   foreach($mapaCampos as $campoBD=>$campoPost) {
+ *       $_POST[$campoPost]=$oferta[$campoBD];
+ *   }
+ */   
     include(VIEW_PATH.'formulario.php');
 }
 else{  
@@ -36,7 +45,8 @@ else{
         include(VIEW_PATH.'formulario.php');
     }
     else{
-        updateTable($_GET['a']);
+        $datos=$_POST;
+        updateTable($_GET['a'],$datos);
         include(CTRL_PATH.'inicio.php');
     }
 }

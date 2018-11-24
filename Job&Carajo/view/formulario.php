@@ -69,7 +69,12 @@
             </tr>
             <tr>
                 <th>Estado de la oferta: </th>
-                <td><input type="text" name="estado" id="estado" value="<?=valorcampo('estado'); ?>"></td>
+                <td>value="<?=valorcampo('estado'); ?>">
+                <input type="radio" name="estado" value="0"> Pendiente de Seleccion
+                <input type="radio" name="estado" value="1"> Realizando Seleccion
+                <input type="radio" name="estado" value="2"> Seleccion concluida
+                <input type="radio" name="estado" value="3"> Cancelada
+                </td>
             </tr>
             <tr>
                 <th>Candidato selecionado: </th>
