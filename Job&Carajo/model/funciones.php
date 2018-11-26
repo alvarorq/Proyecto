@@ -10,18 +10,19 @@ function valorcampo($campo){
 }
 
 //COMPRUEBA LA FECHA SI ES CORRECTA Y SI ESTA EN EL ORDEN CORRECTO
-function comFecha($cfecha){
-    $stfecha= explode("-",$cfecha);
-    if (count($stfecha)!=3){
-        return false;
-    }
-    else if((time())>(strtotime($cfecha))){
-        return false;   
-    }
-    else{
-        $validornot=checkdate($stfecha[1],$stfecha[2],$stfecha[0]);
-    return  $validornot;
-    }
+function comFecha($fecha){
+        $stfecha= explode("/",$fecha);    
+        $fechaOrden=$stfecha[2].'-'.$stfecha[1].'-'.$stfecha[0];
+        if (count($stfecha)!=3){
+            return false;
+        }
+        else if((time())>(strtotime($fechaOrden))){
+            return false;   
+        }
+        else{
+            $validornot=checkdate($stfecha[1],$stfecha[0],$stfecha[2]);
+        return  $validornot;
+        }
 }
 
 //VERIFICA SI EL EMAIL RESPETA EL FORMATO  ALGO@ALGO.ES
@@ -31,6 +32,19 @@ function validarEmail($email){
             $errores = true;
 		    $cadena_Errores["email"] = "Tiene que proporcionar un EMAIL valido";
 		}
+}
+
+function estadOferta($estado){
+    switch ($estado) {
+        case '0': return 'Pendiente de Seleccion';break;
+        case '1': return 'Realizando Seleccion';break;
+        case '2': return 'Seleccion concluida';break;
+        case '3': return 'Cancelada';break;
+        
+        default:
+            return '';
+            break;
+    }
 }
 
 //INSERTAR DATOS DEL FORMULARIO 
@@ -129,7 +143,16 @@ function listapaginacion($inicio, $regsxpag) {
     //Almacenamos en una variable los registros obtenidos de la consulta
     $registros = $registros->fetchAll(PDO::FETCH_ASSOC);
 
-    return $registros;;
+    return $registros;
   }
+
+//CONOCER NUMERO TOTAL DEL REGISTROS
+function numeroReg(){
+    $conn = Db::getInstance();
+    $sql = "SELECT COUNT(*) FROM ofertas";
+    $registros = $conn->db->query($sql);
+    $registros = $registros->fetch(PDO::FETCH_ASSOC);
+    return $registros['COUNT(*)'];
+}
 
 ?>

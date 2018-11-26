@@ -24,7 +24,7 @@
                 <td><?=$oferta['personaContacto']?></td>
                 <td><?=$oferta['telefonoContacto']?></td>
                 <td><?=obtenerProvincia($oferta['provincia'])?></td>
-                <td><?=$oferta['estadoOferta']?></td>
+                <td><?=estadOferta($oferta['estadoOferta'])?></td>
                 <td><?=$oferta['fechaCreacion']?></td>
                 <td><?=$oferta['FechaConfirmacion']?></td>
                 <td><a href="detalles_ctrl.php?a=<?= $oferta['idofertas']?>">Mas detalle</a>/ 
@@ -34,9 +34,13 @@
             </tr>
             <?php endforeach;?>
         </table>
-
-    <a href=""></a>
-    <a href=""></a>
-    
+        <nav>
+            <a href="vistaOfertas_ctrl.php?inicio=<?=$inicio?>">1</a>   
+            <?php   for($i=2; $i<=$numreg; $i++) {
+                    $inicio+=3;
+            ?>
+                    <a href="vistaOfertas_ctrl.php?inicio=<?=$inicio?>"><?=$i ?></a>
+            <?php   }?>
+        </nav>         
     </body>
 </html>

@@ -42,7 +42,7 @@
                     <td><?=obtenerProvincia($oferta['provincia'])?></td>
                 </tr>
                 <tr>    <th>Estado de la oferta</th>
-                    <td><?=$oferta['estadoOferta']?></td>
+                    <td><?=estadOferta($oferta['estadoOferta'])?></td>
                 </tr>
                 <tr>
                     <th>Fecha de creacion</th>

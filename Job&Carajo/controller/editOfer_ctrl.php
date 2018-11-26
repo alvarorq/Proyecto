@@ -12,19 +12,19 @@ $provincias=arrayProvincias();
 $oferta=detalleOferta($_GET['a']);
 
 if(!$_POST){
-    $_POST['descripcion']=$oferta[0]['descripcion'];
-    $_POST['contacto']=$oferta[0]['personaContacto'];
-    $_POST['telefono']=$oferta[0]['telefonoContacto'];
-    $_POST['email']=$oferta[0]['email'];
-    $_POST['direccion']=$oferta[0]['direccion'];
-    $_POST['provincia']=$oferta[0]['provincia'];
-    $_POST['cp']=$oferta[0]['codigoPostal'];
-    $_POST['poblacion']=$oferta[0]['poblacion'];
-    $_POST['fechaselec']=$oferta[0]['FechaConfirmacion'];
-    $_POST['psicologo']=$oferta[0]['psicologo'];
-    $_POST['estado']=$oferta[0]['estadoOferta'];
-    $_POST['candidato']=$oferta[0]['candidato'];
-    $_POST['observaciones']=$oferta[0]['anotaciones'];
+    $_POST['descripcion']=$oferta['descripcion'];
+    $_POST['contacto']=$oferta['personaContacto'];
+    $_POST['telefono']=$oferta['telefonoContacto'];
+    $_POST['email']=$oferta['email'];
+    $_POST['direccion']=$oferta['direccion'];
+    $_POST['provincia']=$oferta['provincia'];
+    $_POST['cp']=$oferta['codigoPostal'];
+    $_POST['poblacion']=$oferta['poblacion'];
+    $_POST['fechaselec']=$oferta['FechaConfirmacion'];
+    $_POST['psicologo']=$oferta['psicologo'];
+    $_POST['estado']=$oferta['estadoOferta'];
+    $_POST['candidato']=$oferta['candidato'];
+    $_POST['observaciones']=$oferta['anotaciones'];
 
 /*OTRA OPCION
  *   $mapaCampos=[

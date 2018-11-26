@@ -61,7 +61,7 @@
             </tr>
             <tr>
                 <th>Fecha de seleccion: </th>
-                <td><input type="date" name="fechaselec" id="fechaselec" value="<?=valorcampo('fechaselec'); ?>"></td>
+                <td><input type="text" name="fechaselec" id="fechaselec" placeholder="DD/MM/YYYY" value="<?=valorcampo('fechaselec'); ?>"></td>
             </tr>
             <tr>
                 <th>Psicologo encargado: </th>
@@ -69,11 +69,11 @@
             </tr>
             <tr>
                 <th>Estado de la oferta: </th>
-                <td>value="<?=valorcampo('estado'); ?>">
-                <input type="radio" name="estado" value="0"> Pendiente de Seleccion
-                <input type="radio" name="estado" value="1"> Realizando Seleccion
-                <input type="radio" name="estado" value="2"> Seleccion concluida
-                <input type="radio" name="estado" value="3"> Cancelada
+                <td>
+                <input type="radio" name="estado" value="0" <?php if(isset($_POST["estado"])&&$_POST["estado"]=="0"){ echo 'checked';}?>> Pendiente de Seleccion
+                <input type="radio" name="estado" value="1" <?php if(isset($_POST["estado"])&&$_POST["estado"]=="1"){ echo 'checked';}?>> Realizando Seleccion
+                <input type="radio" name="estado" value="2" <?php if(isset($_POST["estado"])&&$_POST["estado"]=="2"){ echo 'checked';}?>> Seleccion concluida
+                <input type="radio" name="estado" value="3" <?php if(isset($_POST["estado"])&&$_POST["estado"]=="3"){ echo 'checked';}?>> Cancelada
                 </td>
             </tr>
             <tr>
