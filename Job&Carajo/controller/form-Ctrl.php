@@ -20,6 +20,7 @@ else{
         include(VIEW_PATH.'formulario.php');
     }
     else{
+        $_POST['fechaselec']=fechaParaDB($_POST['fechaselec']);
         $datos=$_POST;
         insertarFormulario($datos);
         include(CTRL_PATH.'inicio.php');

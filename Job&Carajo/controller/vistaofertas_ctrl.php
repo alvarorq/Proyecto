@@ -1,7 +1,7 @@
 <?php
 include 'constantes.php';
 
-include(MODEL_PATH.'funciones.php');
+include_once(MODEL_PATH.'funciones.php');
 
 $inicio=0;
 $registro=3;

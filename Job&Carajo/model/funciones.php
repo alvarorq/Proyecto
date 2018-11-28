@@ -25,6 +25,14 @@ function comFecha($fecha){
         }
 }
 
+
+//CONVERTIR FECHA
+function fechaParaDB($fecha){
+    $stfecha= explode("/",$fecha);
+    $fechaOrden=$stfecha[2].'-'.$stfecha[1].'-'.$stfecha[0];
+    return $fechaOrden;
+}
+
 //VERIFICA SI EL EMAIL RESPETA EL FORMATO  ALGO@ALGO.ES
 function validarEmail($email){
     if(filter_var( $email , FILTER_VALIDATE_EMAIL)){}
@@ -111,9 +119,6 @@ function borrarOferta($id){
     $sentencia = $conn->db->prepare($sql);
     $sentencia->bindParam(1, $id, PDO::PARAM_INT);
     $sentencia->execute();
-    $arr = $sql->fetchAll(PDO::FETCH_ASSOC);
-    
-    return $arr;
 }
 
 //MODIFICA LA TABLA DE OFERTAS
