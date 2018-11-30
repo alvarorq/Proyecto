@@ -160,4 +160,12 @@ function numeroReg(){
     return $registros['COUNT(*)'];
 }
 
+//GENERA LAS PAGINAS
+function enlace( $pag,$desc='') {
+    if ($desc=='') {
+        $desc=$pag;
+    }
+    echo "<a href=\"vistaOfertas_ctrl.php?pag=$pag\">$desc</a> ";
+}
+
 ?>

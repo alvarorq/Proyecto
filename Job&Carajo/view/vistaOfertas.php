@@ -35,12 +35,26 @@
             <?php endforeach;?>
         </table>
         <nav>
-            <a href="vistaOfertas_ctrl.php?inicio=<?=$inicio?>">1</a>   
-            <?php   for($i=2; $i<=$numreg; $i++) {
-                    $inicio+=3;
-            ?>
-                    <a href="vistaOfertas_ctrl.php?inicio=<?=$inicio?>"><?=$i ?></a>
-            <?php   }?>
+           
+            <?php
+            //PAGINA INICIO          
+            enlace(0, "Inicio");
+            
+            if ($pag-1>=1) {
+                $pos=($pag-1)*REGxPAG;
+                enlace($pag-1);
+            }
+            if(!($pag == 0 || $pag == $ult_pag)){
+                echo "-$pag-";
+            }
+            if ($pag+1<$ult_pag) {
+                enlace($pag+1);
+            }
+            //PAGINA FIN
+            enlace($ult_pag, "Fin");
+
+           ?>
+
         </nav>         
     </body>
 </html>
