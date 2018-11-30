@@ -26,10 +26,17 @@ function comFecha($fecha){
 }
 
 
-//CONVERTIR FECHA
+//CONVERTIR FECHA PARA BD
 function fechaParaDB($fecha){
     $stfecha= explode("/",$fecha);
     $fechaOrden=$stfecha[2].'-'.$stfecha[1].'-'.$stfecha[0];
+    return $fechaOrden;
+}
+
+//CONVERTIR FECHA PARA FORMULARIO
+function fechaParaForm($fecha){
+    $stfecha= explode("-",$fecha);
+    $fechaOrden=$stfecha[2].'/'.$stfecha[1].'/'.$stfecha[0];
     return $fechaOrden;
 }
 
@@ -136,6 +143,19 @@ function updateTable($id, $datos){
     $sentencia->execute();
 
 }
+
+//MODIFICA TABLA SOLO EL ESTADO
+function updateEstado($id, $datos){
+    $conn = Db::getInstance();
+    $sql = "UPDATE ofertas SET estadoOferta='$datos[estado]', candidato='$datos[candidato]',
+            anotaciones='$datos[observaciones]'
+            WHERE idOfertas = ?";
+ 
+     $sentencia = $conn->db->prepare($sql);
+     $sentencia->bindParam(1, $id, PDO::PARAM_INT);
+     $sentencia->execute();
+ 
+ }
 
 //DEVUELVE UN RANGO DE REGISTROS DE LA BASE DE DATOS DEFINIDO POR $INICIO Y $REGSXPAG
 function listapaginacion($inicio, $regsxpag) {

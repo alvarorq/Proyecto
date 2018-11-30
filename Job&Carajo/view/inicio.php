@@ -10,5 +10,6 @@
 
     <a href="form-ctrl.php">Formulario ofertas</a>
     <a href="vistaOfertas_ctrl.php?pag=0">Lista de ofertas</a>
+    <a href="cambio_estado_ctrl.php">Cambio de estado</a>
 </body>
 </html>

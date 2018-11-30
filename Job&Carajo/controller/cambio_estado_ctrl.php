@@ -26,28 +26,19 @@ if(!$_POST){
     $_POST['candidato']=$oferta['candidato'];
     $_POST['observaciones']=$oferta['anotaciones'];
 
-/*OTRA OPCION
- *   $mapaCampos=[
- *       'descipcion'=>'descripcion', 
- *       'contacto'=>'contacto']
- *   foreach($mapaCampos as $campoBD=>$campoPost) {
- *       $_POST[$campoPost]=$oferta[$campoBD];
- *   }
- */   
-    include(VIEW_PATH.'formulario.php');
+    include(VIEW_PATH.'vista_cambio_estado.php');
 }
 else{  
 
-    FiltraCamposPost($errores);
+    //FiltraCamposPost($errores);
 
     if($errores->HayErrores()){
         $lista_errores=$errores->listaErrores();
-        include(VIEW_PATH.'formulario.php');
+        include(VIEW_PATH.'vista_cambio_estado.php');
     }
     else{
-        $_POST['fechaselec']=fechaParaDB($_POST['fechaselec']);
         $datos=$_POST;
-        updateTable($_GET['a'],$datos);
+        updateEstado($_GET['a'],$datos);
         include(CTRL_PATH.'inicio.php');
     }
 }
