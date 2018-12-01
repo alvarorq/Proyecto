@@ -1,0 +1,14 @@
+.mio{
+    color:white;
+    background-color: brown;
+    
+}
+
+.mio2{
+    color:white;
+    background-color: blue;
+}
+
+div[class|=col]{
+    border:1px solid #ffc107;
+}

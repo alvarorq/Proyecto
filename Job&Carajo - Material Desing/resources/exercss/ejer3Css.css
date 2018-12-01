@@ -1,0 +1,63 @@
+div[class|=row]{
+    border: 2px solid black;   
+}
+div[class|=col]{
+    border:2px solid black;
+}
+
+.cabeza{
+    background-color: indianred;
+    text-align: center;
+}
+.medio1{
+    text-align: left;
+    background-color: maroon;
+}
+.medio2{
+    text-align: center; 
+    background-color: darkcyan;
+}
+.medio3{
+    text-align: right; 
+    background-color: maroon;
+}
+.pie1, .pie2{
+    text-align: center;
+    background-color: darkorange;
+}
+
+@media(min-width: 576px){
+    .cabeza{background-color: darkcyan;}
+    .medio2{
+        text-align: right;
+        background-color: maroon;
+    }
+    .medio3{
+        text-align: center;
+        background-color: forestgreen;
+    }
+}
+
+@media (min-width: 768px){
+    .cabeza{
+        background-color: darkgreen;
+        text-align: left;
+    }
+    .medio1{
+        text-align: center;
+    }
+    .medio2{
+    background-color: maroon;
+    text-align: center;
+    }
+    .medio3{
+        background-color: maroon;
+        text-align: center;
+    }
+    .pie1{
+        text-align: right;
+    }
+    .pie2{
+        text-align: left;
+    }
+}   
