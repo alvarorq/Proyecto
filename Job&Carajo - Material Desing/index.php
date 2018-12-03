@@ -8,4 +8,4 @@
  * pues en otro caso tendríamos problemas para crear los enlaces URL de las
  * diferentes páginas
  */
-header('Location: controller/inicio.php');
+header('Location: controller/login.php');

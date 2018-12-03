@@ -1,4 +1,5 @@
 <?php 
+include 'control_acceso.php';
 include 'constantes.php';
 include 'filtrar_formulario.php';
 include(MODEL_PATH.'funciones.php');

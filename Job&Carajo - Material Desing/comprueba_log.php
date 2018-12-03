@@ -5,10 +5,11 @@ try {
     
     $base->setAttribute(PDO::ATTR_ERRMODE, PDO_ERRMODE_EXCEPTION);
 
+   
+    
+
     $sql="select * from usuarios where userName= :usuario AND password= :password";
-
     $resultado=$base->prepare($sql);
-
     $usuario=htmlentities(addslashes($_POST['usuario']));
     $password=htmlentities(addslashes($_POST['password']));
 

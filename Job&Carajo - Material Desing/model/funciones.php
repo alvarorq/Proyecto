@@ -191,4 +191,49 @@ function enlace( $pag,$desc='') {
     echo "<a class='btn btn-dark' href=\"vistaOfertas_ctrl.php?pag=$pag\">$desc</a> ";
 }
 
+//COMPRUEBA EL USUARIO Y CONTRASEÑA
+
+function creaLogin($datos){
+    $conn=Db::getInstance();
+    $sql="select * from usuarios where userName= :usuario AND password= :password";
+    $resultado=$conn->db->prepare($sql);
+    $usuario=htmlentities(addslashes($datos['usuario']));
+    $password=htmlentities(addslashes($datos['password']));
+
+    $resultado->bindValue(":usuario", $usuario);
+    $resultado->bindValue(":password", $password);
+    $resultado->execute();
+
+    $numero_registro=$resultado->rowCount();
+    if($numero_registro!=0){
+
+        session_start();
+
+        $_SESSION['usuario']=$usuario;
+        $_SESSION['inicio']=date("h:i");;
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+//OBTENER ROL DEL USUARIO ACTIVO
+function rolUsuario(){
+    $conn=Db::getInstance();
+    $sql="select typeAccount from usuarios where userName= :usuario";
+    $resultado=$conn->db->prepare($sql);
+    $usuario=htmlentities(addslashes($_SESSION['usuario']));
+
+    $resultado->bindValue(":usuario", $usuario);
+    $resultado->execute();
+    $resultado = $resultado->fetch(PDO::FETCH_ASSOC);
+    
+    if($resultado['typeAccount']==0){
+        return 'Administrador';
+    }
+    else{
+        return 'Psicologo';
+    }
+}
 ?>

@@ -9,7 +9,7 @@ class Db
 
     public function __construct ()  
     {        
-       $this->db = new PDO(self::$dns,self::$user,self::$pass);       
+       $this->db = new PDO(self::$dns,self::$user,self::$pass);   
     } 
 
     public static function getInstance()

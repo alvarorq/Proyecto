@@ -15,8 +15,8 @@
         <div class="col-md-6 mt-md-0 mt-3  text-md-left">
 
           <!-- Content -->
-          <h5 class="text-uppercase">Footer Content</h5>
-          <p>Here you can use rows and columns here to organize your footer content.</p>
+          <h5 class="text-uppercase">Job & Carajo</h5>
+          <p>Ayudamos a las empresas a crear su plantilla con nuestros conocimientos en Recursos Humanos.</p>
 
         </div>
 

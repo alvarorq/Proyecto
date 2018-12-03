@@ -11,6 +11,21 @@ function VPost($campo, $default='')
     }
 }
 
+function FiltrarLogin(Gestor_Errores $errores){
+    if(VPost("usuario")==""){
+        $errores->AnotaError('usuario', 'Introduce tu nombre de usuario.');
+    }
+    if(VPost("password")==""){
+        $errores->AnotaError('password', 'Introduce tu contraseña.');
+    }
+}
+
+function segundoLogin(Gestor_Errores $errores){
+    if(!VPost("login")){
+        $errores->AnotaError('login','Usuario o contraseña erroneos');
+    }
+}
+
 function FiltraCamposPost(Gestor_Errores $errores)
 {
     if(VPost("descripcion")==""){

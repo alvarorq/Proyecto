@@ -26,8 +26,8 @@
 
     <nav class="navbar-custom navbar navbar-dark navbar-expand-lg navbar-expand-sm">
       <a class="navbar-brand" href="#"><img src="../resources/logo.PNG"> Job & Carajo</a>
-      <div class="navbar-nav ml-auto" id="navbarNav ">
-        <ul class="navbar-nav ml-auto">
+      <div class="navbar-nav" id="navbarNav ">
+        <ul class="navbar-nav">
           <li class="nav-item">
             <a class="nav-link" href="../controller/inicio.php">Home</a>
           </li>
@@ -37,6 +37,19 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Pricing</a>
           </li>
+        </ul>
+    </div>
+    <div class="navbar-nav ml-auto" id="navbarNav ">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link">Rol <img class="icon2" src="../resources/iconic/svg/person.svg"> : <?= rolUsuario($_SESSION['usuario']);?> </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">Sesion iniciada <img class="icon2" src="../resources/iconic/svg/clock.svg"> : <?= $_SESSION['inicio'];?></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="cierre.php"><img class="icon2" src="../resources/iconic/svg/power-standby.svg"> Cerrar Sesion</a>
+          </li>          
         </ul>
     </div>
 </nav>
