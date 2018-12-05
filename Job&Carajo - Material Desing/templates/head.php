@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-
+<?php include_once(MODEL_PATH.'user_tools.php'); ?>
 <head>
 
   <meta charset="utf-8">

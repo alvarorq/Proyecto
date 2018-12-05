@@ -1,5 +1,9 @@
+body{
+    background-color: #455D7A;
+}
+
 .navbar-custom{
-    background-color:#155e63;
+    background-color:#1E2030;
     color: white;
 }
 
@@ -15,14 +19,14 @@
 
 .btn-custom {
   color:white;
-  background-color: #155e63;
+  background-color: #E52A2A;
   border-color: #343a40;
 }
 
 .btn-custom:hover {
   color: #fff;
-  background-color: #76b39d;
-  border-color: #76b39d;
+  background-color: #EA4141;
+  border-color: #EA4141;
 }
 
 .btn-custom:focus, .btn-custom.focus {
@@ -99,7 +103,7 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-color: #fff;
+  background-color: #6D89A9;
 }
 
 [tabindex="-1"]:focus {
@@ -4413,6 +4417,7 @@ input[type="button"].btn-block {
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
+  margin: 10px;
 }
 
 .card > hr {

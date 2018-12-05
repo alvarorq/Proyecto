@@ -3,7 +3,8 @@
 include 'control_acceso.php';
 
 include 'constantes.php';
-include_once(MODEL_PATH.'funciones.php');
+include(MODEL_PATH.'filtrado_tools.php');
+include(MODEL_PATH.'ofertas_tools.php');
 define('REGxPAG',3);
 
 if(isset($_GET['pag'])){

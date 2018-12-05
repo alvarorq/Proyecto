@@ -44,11 +44,11 @@
                 </tr>
                 <tr>
                     <th>Fecha de creacion</th>
-                    <td><?=$oferta['fechaCreacion']?></td>
+                    <td><?=fechaParaForm($oferta['fechaCreacion'])?></td>
                 </tr>          
                 <tr>
                     <th>Fecha de confirmacion</th>
-                    <td><?=$oferta['FechaConfirmacion']?></td>
+                    <td><?=fechaParaForm($oferta['FechaConfirmacion'])?></td>
                 </tr>
                 <tr>
                     <th>Psicologo</th>
