@@ -4,7 +4,7 @@ include_once('connexion.php');
 
 function creaLogin($datos){
     $conn=Db::getInstance();
-    $sql="select * from usuarios where userName= :usuario AND password= :password";
+    $sql="select * from usuarios where userName= :usuario AND pass= :password";
     $resultado=$conn->db->prepare($sql);
     $usuario=htmlentities(addslashes($datos['usuario']));
     $password=htmlentities(addslashes($datos['password']));
