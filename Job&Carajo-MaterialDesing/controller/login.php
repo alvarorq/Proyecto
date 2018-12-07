@@ -1,8 +1,8 @@
 <?php 
 include 'constantes.php';
 include 'filtrar_formulario.php';
-include(MODEL_PATH.'user_tools.php');
-include(RSC_PATH.'Gestor_Errores.php');
+include_once(MODEL_PATH.'user_tools.php');
+include_once(RSC_PATH.'Gestor_Errores.php');
 $erroresForm=new Gestor_Errores();
 $erroresLog=new Gestor_Errores();
 $lista_errores;

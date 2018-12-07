@@ -28,8 +28,21 @@
                 <td><?=fechaParaForm($oferta['fechaCreacion'])?></td>
                 <td><?=fechaParaForm($oferta['FechaConfirmacion'])?></td>
                 <td><a href="detalles_ctrl.php?a=<?= $oferta['idofertas']?>"><img class="icon" src="../resources/iconic/svg/magnifying-glass.svg"></a>
-                <a href="editOfer_ctrl.php?a=<?= $oferta['idofertas']?>"><img class="icon" src="../resources/iconic/svg/pencil.svg"></a>
-                <a href="confirmar_ctrl.php?a=<?= $oferta['idofertas']?>"><img class="icon" src="../resources/iconic/svg/trash.svg"></a>
+                <a
+                    <?php 
+                        if($_SESSION['user']['typeAccount']==0){
+                            echo 'href="editOfer_ctrl.php?a='.$oferta['idofertas'].'"';
+                        }
+                        else{
+                            echo 'href="cambio_estado_ctrl.php?a='.$oferta['idofertas'].'"';
+                        }
+                    ?>
+                ><img class="icon" src="../resources/iconic/svg/pencil.svg"></a>
+                <?php 
+                        if($_SESSION['user']['typeAccount']==0){ ?>
+                            <a href="confirmar_ctrl.php?a=<?= $oferta['idofertas']?>"><img class="icon" src="../resources/iconic/svg/trash.svg"></a>
+                <?php   }
+                    ?>
                 </td>
             </tr>
             <?php endforeach;?>

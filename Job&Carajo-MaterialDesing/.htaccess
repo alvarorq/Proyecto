@@ -1,5 +1,3 @@
 RewriteEngine on
 RewriteRule ^view/(.*) /DWES/Proyecto/Job&Carajo-MaterialDesing/controller/inicio.php [R=301,L]
 RewriteRule ^model/(.*) /DWES/Proyecto/Job&Carajo-MaterialDesing/controller/inicio.php [R=301,L]
-RewriteRule ^templates/(.*) /DWES/Proyecto/Job&Carajo-MaterialDesing/controller/inicio.php [R=301,L]
-RewriteRule ^resources/(.*) /DWES/Proyecto/Job&Carajo-MaterialDesing/controller/inicio.php [R=301,L]

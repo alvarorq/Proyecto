@@ -2,9 +2,9 @@
 include 'control_acceso.php';
 include 'constantes.php';
 include 'filtrar_formulario.php';
-include(MODEL_PATH.'ofertas_tools.php');
-include(MODEL_PATH.'filtrado_tools.php');
-include(RSC_PATH.'Gestor_Errores.php');
+include_once(MODEL_PATH.'ofertas_tools.php');
+include_once(MODEL_PATH.'filtrado_tools.php');
+include_once(RSC_PATH.'Gestor_Errores.php');
 
 $errores=new Gestor_Errores();
 $lista_errores;

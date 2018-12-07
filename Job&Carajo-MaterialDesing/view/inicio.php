@@ -6,9 +6,9 @@
 <body>
     <br>
         
-        <div class="row">   
+      <div class="row">   
             <div class="col card" style="width:400px">
-              <img class="card-img-top" src="../resources/img1.jpg" alt="Card image">
+              <img class="card-img-top" src="../resources/img6.jpg" alt="Card image">
               <div class="card-body">
                 <h4 class="card-title">Añadir ofertas</h4>
                 <p class="card-text">Formulario de inscripcion de ofertas que seran publicadas en nuestra web.</p>
@@ -16,23 +16,33 @@
               </div>
             </div>
             <div class="col card" style="width:400px">
-              <img class="card-img-top" src="../resources/img2.jpg" alt="Card image">
+              <img class="card-img-top" src="../resources/img5.jpg" alt="Card image">
               <div class="card-body">
-                <h4 class="card-title">Listado de ofertas</h4>
-                <p class="card-text">Listado con todas las oferas, tanto las disponibles como las acabadas.</p>
+                <h4 class="card-title">Lista de ofertas</h4>
+                <p class="card-text">Listado con todas las oferas añadidas hasta ahora.</p>
                 <a href="vistaOfertas_ctrl.php?pag=0" class="btn btn-custom">Listado de ofertas</a>
               </div>
             </div>
+        </div>
+
+        <div class="row">   
             <div class="col card" style="width:400px">
-              <img class="card-img-top" src="../resources/img3.jpg" alt="Card image">
+              <img class="card-img-top" src="../resources/img2.jpg" alt="Card image">
               <div class="card-body">
-                <h4 class="card-title">Modificar estado</h4>
-                <p class="card-text">Modificar estado, candidato y anotaciones de la oferta de trabajo.</p>
-                <a href="cambio_estado_ctrl.php" class="btn btn-custom">Cambio de estado</a>
+                <h4 class="card-title">Lista de usuarios</h4>
+                <p class="card-text">Lista de usuarios existentes en la empresa, nuestro equipo de trabajo.</p>
+                <a href="lista_usuarios_ctrl.php" class="btn btn-custom">Listado de usuarios</a>
+              </div>
+            </div>
+            <div class="col card" style="width:400px">
+              <img class="card-img-top" src="../resources/img4.jpg" alt="Card image">
+              <div class="card-body">
+                <h4 class="card-title">Nuevo usuario</h4>
+                <p class="card-text">Añade un usuario, podrás otorgarle un rol, nombre y contraseña.</p>
+                <a href="form_usuario_ctrl.php" class="btn btn-custom">Añadir usuario</a>
               </div>
             </div>
         </div>
-    </div>
 
     <?php include(TEMPLATE_PATH.'javascript.php'); ?>
 </body>
