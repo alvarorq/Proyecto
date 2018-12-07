@@ -112,7 +112,7 @@ function updateEstado($id, $datos){
 //DEVUELVE UN RANGO DE REGISTROS DE LA BASE DE DATOS DEFINIDO POR $INICIO Y $REGSXPAG
 function listapaginacion($inicio, $regsxpag) {
     $conn = Db::getInstance();
-    $sql = "SELECT SQL_CALC_FOUND_ROWS * FROM ofertas LIMIT $inicio, $regsxpag";
+    $sql = "SELECT SQL_CALC_FOUND_ROWS * FROM ofertas ORDER BY fechaCreacion desc LIMIT $inicio, $regsxpag";
         
     $registros = $conn->db->prepare($sql);
     //Ejecutamos la consulta...
@@ -133,11 +133,15 @@ function numeroReg(){
 }
 
 //GENERA LAS PAGINAS
-function enlace( $pag,$desc='') {
+function enlace($str='', $pag,$desc='') {
     if ($desc=='') {
         $desc=$pag;
     }
-    echo "<a class='btn btn-dark' href=\"vistaOfertas_ctrl.php?pag=$pag\">$desc</a> ";
+    if($str=='no'){
+        echo "<a class='btn btn-dark' href=\"vistaOfertas_ctrl.php?pag=$pag\">$desc</a> ";
+    }else{
+        echo "<a class='btn btn-custom' href=\"vistaOfertas_ctrl.php?pag=$pag\">$desc</a> ";
+    }
 }
 
 ?>

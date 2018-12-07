@@ -40,7 +40,7 @@
                 ><img class="icon" src="../resources/iconic/svg/pencil.svg"></a>
                 <?php 
                         if($_SESSION['user']['typeAccount']==0){ ?>
-                            <a href="confirmar_ctrl.php?a=<?= $oferta['idofertas']?>"><img class="icon" src="../resources/iconic/svg/trash.svg"></a>
+                            <a href="confirmar_ctrl.php?tipo=o&a=<?= $oferta['idofertas']?>"><img class="icon" src="../resources/iconic/svg/trash.svg"></a>
                 <?php   }
                     ?>
                 </td>
@@ -50,21 +50,30 @@
         <nav>
            
             <?php
-            //PAGINA INICIO          
-            enlace(0, "Inicio");
-            
+            //PAGINA INICIO
+            if($_GET['pag']==0){
+                enlace('clase',0, "Inicio");
+            }else{          
+            enlace('no',0, "Inicio");
+            }
+
             if ($pag-1>=1) {
                 $pos=($pag-1)*REGxPAG;
-                enlace($pag-1);
+                enlace('no',$pag-1);
             }
             if(!($pag == 0 || $pag == $ult_pag)){
                 echo "<a class='btn btn-custom' href=\"vistaOfertas_ctrl.php?pag=$pag\">$pag</a> ";
             }
             if ($pag+1<$ult_pag) {
-                enlace($pag+1);
+                enlace('no',$pag+1);
             }
             //PAGINA FIN
-            enlace($ult_pag, "Fin");
+            if($_GET['pag']==$ult_pag){
+                enlace('clase',$ult_pag, "Fin");
+            }else{          
+                enlace('no',$ult_pag, "Fin");
+            }
+            
 
            ?>
 

@@ -20,6 +20,17 @@ function FiltrarLogin(Gestor_Errores $errores){
     }
 }
 
+
+
+function formUsuario(Gestor_Errores $errores){
+    if(VPost("name")==""){
+        $errores->AnotaError('name', 'Introduce un nombre de usuario.');
+    }
+    if(VPost("passw")==""){
+        $errores->AnotaError('passw', 'Introduce una contraseña.');
+    }
+}
+
 function segundoLogin(Gestor_Errores $errores){
     if(!VPost("login")){
         $errores->AnotaError('login','Usuario o contraseña erroneos');

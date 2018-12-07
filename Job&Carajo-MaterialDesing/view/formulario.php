@@ -69,7 +69,7 @@
             <tr>
                 <th>Estado de la oferta: </th>
                 <td>
-                <input type="radio" name="estado" value="0" <?php if(isset($_POST["estado"])&&$_POST["estado"]=="0"){ echo 'checked';}?>> Pendiente de Seleccion
+                <input type="radio" name="estado" checked value="0" <?php if(isset($_POST["estado"])&&$_POST["estado"]=="0"){ echo 'checked';}?>> Pendiente de Seleccion
                 <input type="radio" name="estado" value="1" <?php if(isset($_POST["estado"])&&$_POST["estado"]=="1"){ echo 'checked';}?>> Realizando Seleccion
                 <input type="radio" name="estado" value="2" <?php if(isset($_POST["estado"])&&$_POST["estado"]=="2"){ echo 'checked';}?>> Seleccion concluida
                 <input type="radio" name="estado" value="3" <?php if(isset($_POST["estado"])&&$_POST["estado"]=="3"){ echo 'checked';}?>> Cancelada
@@ -85,7 +85,7 @@
             </tr>
             <tr>
                 <th></th>
-                <td><input type="submit" value="Enviar"></td>
+                <td><br><input class="btn btn-custom" type="submit" value="Enviar"></td>
             </tr>
         </table>
     </form>

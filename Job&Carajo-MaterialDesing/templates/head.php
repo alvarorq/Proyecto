@@ -25,13 +25,10 @@
         <div class="navbar-nav" id="navbarNav ">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="../controller/inicio.php">Home</a>
+              <a class="nav-link" href="../controller/inicio.php">Inicio</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Features</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Pricing</a>
+              <a class="nav-link" href="vistaofertas_ctrl.php?pag=0">Ofertas</a>
             </li>
           </ul>
         </div>

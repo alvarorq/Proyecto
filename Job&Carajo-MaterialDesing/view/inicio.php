@@ -6,7 +6,8 @@
 <body>
     <br>
         
-      <div class="row">   
+      <div class="row">
+        <?php if($_SESSION['user']['typeAccount']==0){ ?>   
             <div class="col card" style="width:400px">
               <img class="card-img-top" src="../resources/img6.jpg" alt="Card image">
               <div class="card-body">
@@ -15,7 +16,8 @@
                 <a href="form-ctrl.php" class="btn btn-custom">Formulario ofertas</a>
               </div>
             </div>
-            <div class="col card" style="width:400px">
+        <?php } ?>
+            <div class="col<?php if($_SESSION['user']['typeAccount']==1){echo '-5';} ?> card" style="width:400px">
               <img class="card-img-top" src="../resources/img5.jpg" alt="Card image">
               <div class="card-body">
                 <h4 class="card-title">Lista de ofertas</h4>
@@ -25,24 +27,27 @@
             </div>
         </div>
 
+      <?php if($_SESSION['user']['typeAccount']==0){ ?>
         <div class="row">   
-            <div class="col card" style="width:400px">
-              <img class="card-img-top" src="../resources/img2.jpg" alt="Card image">
-              <div class="card-body">
-                <h4 class="card-title">Lista de usuarios</h4>
-                <p class="card-text">Lista de usuarios existentes en la empresa, nuestro equipo de trabajo.</p>
-                <a href="lista_usuarios_ctrl.php" class="btn btn-custom">Listado de usuarios</a>
-              </div>
-            </div>
-            <div class="col card" style="width:400px">
-              <img class="card-img-top" src="../resources/img4.jpg" alt="Card image">
-              <div class="card-body">
-                <h4 class="card-title">Nuevo usuario</h4>
-                <p class="card-text">Añade un usuario, podrás otorgarle un rol, nombre y contraseña.</p>
-                <a href="form_usuario_ctrl.php" class="btn btn-custom">Añadir usuario</a>
-              </div>
-            </div>
-        </div>
+                  <div class="col card" style="width:400px">
+                    <img class="card-img-top" src="../resources/img2.jpg" alt="Card image">
+                    <div class="card-body">
+                      <h4 class="card-title">Lista de usuarios</h4>
+                      <p class="card-text">Lista de usuarios existentes en la empresa, nuestro equipo de trabajo.</p>
+                      <a href="lista_usuarios_ctrl.php" class="btn btn-custom">Listado de usuarios</a>
+                    </div>
+                  </div>
+                  <div class="col card" style="width:400px">
+                    <img class="card-img-top" src="../resources/img4.jpg" alt="Card image">
+                    <div class="card-body">
+                      <h4 class="card-title">Nuevo usuario</h4>
+                      <p class="card-text">Añade un usuario, podrás otorgarle un rol, nombre y contraseña.</p>
+                      <a href="form_usuario_ctrl.php" class="btn btn-custom">Añadir usuario</a>
+                    </div>
+                  </div>
+              </div>         
+      <?php } ?>
+        
 
     <?php include(TEMPLATE_PATH.'javascript.php'); ?>
 </body>

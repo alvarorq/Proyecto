@@ -20,8 +20,8 @@
                 <td><?=$user[$key]['pass']?></td>
                 <td><?php if($user[$key]['typeAccount']==0){echo 'Administrador';}else{echo 'Psicologo';}?></td>
                 <td>
-                    <a href="modtUsuario_ctrl.php?a=<?=$user['idUsuarios']?>"><img class="icon" src="../resources/iconic/svg/pencil.svg"></a>
-                    <a href="confirmar_ctrl.php?tipo=u&a=<?= $user['idUsuarios']?>"><img class="icon" src="../resources/iconic/svg/trash.svg"></a>
+                    <a href="modUsuario_ctrl.php?a=<?=$user[$key]['idusuarios']?>"><img class="icon" src="../resources/iconic/svg/pencil.svg"></a>
+                    <a href="confirmar_ctrl.php?tipo=u&a=<?= $user[$key]['idusuarios']?>"><img class="icon" src="../resources/iconic/svg/trash.svg"></a>
                 </td>
             </tr>
             <?php endforeach;?>
