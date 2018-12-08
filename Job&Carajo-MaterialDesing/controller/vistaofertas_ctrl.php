@@ -10,6 +10,7 @@ define('REGxPAG',3);
 if(isset($_GET['pag'])){
     $pag=$_GET['pag'];
 }else{
+    $_GET['pag']=0;
     $pag=0;
 }
 $registro=3;

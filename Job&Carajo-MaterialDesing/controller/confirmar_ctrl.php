@@ -14,9 +14,11 @@ else{
     if($_POST['confirmar']==1){
         if($_GET['tipo']=='u'){
             deleteUser($id);
+            include(TEMPLATE_PATH.'alerta_eliminado.php');
         }
         else{
             borrarOferta($id);
+            include(TEMPLATE_PATH.'alerta_eliminado.php');
         }
     }
     $_GET['inicio']=0;

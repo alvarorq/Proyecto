@@ -21,7 +21,7 @@
 <div>
 
     <nav class="navbar-custom navbar navbar-dark navbar-expand-lg navbar-expand-sm">
-        <a class="navbar-brand" href="#"><img src="../resources/logo.PNG"> Job & Carajo</a>
+        <a class="navbar-brand" href="#"><img src="../resources/logo.PNG" width="60" height="60"> Job & Carajo</a>
         <div class="navbar-nav" id="navbarNav ">
           <ul class="navbar-nav">
             <li class="nav-item">

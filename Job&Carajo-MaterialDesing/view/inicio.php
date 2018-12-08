@@ -16,8 +16,18 @@
                 <a href="form-ctrl.php" class="btn btn-custom">Formulario ofertas</a>
               </div>
             </div>
+        <?php } else{ ?>
+
+            <div class="col card" style="width:400px">
+              <img class="card-img-top" src="../resources/img4.jpg" alt="Card image">
+              <div class="card-body">
+                <h4 class="card-title">Editar tu perfil</h4>
+                <p class="card-text">Modifica tu nombre de usuario o tu contraseña para controlar tu cuenta.</p>
+                <a href="modUsuario_ctrl.php?a=<?=$_SESSION['user']['idusuarios']?>" class="btn btn-custom">Modificar</a>
+              </div>
+            </div>
         <?php } ?>
-            <div class="col<?php if($_SESSION['user']['typeAccount']==1){echo '-5';} ?> card" style="width:400px">
+            <div class="col card" style="width:400px">
               <img class="card-img-top" src="../resources/img5.jpg" alt="Card image">
               <div class="card-body">
                 <h4 class="card-title">Lista de ofertas</h4>

@@ -25,7 +25,8 @@ else{
     else{
         $datos=$_POST;
         addUser($datos);
-        include(CTRL_PATH.'inicio.php');
+        include(TEMPLATE_PATH.'alerta_exito.php');
+        include(CTRL_PATH.'lista_usuarios_ctrl.php');
     }
 }
 ?>

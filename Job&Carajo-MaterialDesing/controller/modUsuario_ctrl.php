@@ -29,6 +29,7 @@ else{
     else{
         $datos=$_POST;
         modifyUser($_GET['a'],$datos);
+        include(TEMPLATE_PATH.'alerta_exito.php');
         include(CTRL_PATH.'lista_usuarios_ctrl.php');
     }
 }

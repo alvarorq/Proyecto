@@ -5,7 +5,7 @@
     </head>
     <body>
         
-        <table class="table">
+        <table class="table table-secondary table-bordered table-hover">
             <thead class="thead-dark">
             <tr>
                 <th>Nombre usuario</th>
