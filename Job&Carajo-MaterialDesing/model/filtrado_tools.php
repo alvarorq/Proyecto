@@ -1,14 +1,27 @@
 <?php
 
+/*
+ * Fichero con todas las herramientas necesarias para el filtrado del formulario
+ */
+
 include_once('connexion.php');
-//PARA NO PERDER LO RELLENADO EN EL FORMULARIO AL COMETER ERRORES EN LOS DATOS
+
+/**
+ * Mantiene los valores introducidos en el formulario
+ * @param string $campo
+ * @return string
+ */
 function valorcampo($campo){
     if(isset($_POST[$campo])){   
         return $_POST[$campo];
     }
 }
 
-//COMPRUEBA LA FECHA SI ES CORRECTA Y SI ESTA EN EL ORDEN CORRECTO
+/** 
+ * COMPRUEBA LA FECHA SI ES CORRECTA Y SI ESTA EN EL ORDEN CORRECTO
+ * @param string $fecha
+ * @return boolean
+ */
 function comFecha($fecha){
         $stfecha= explode("/",$fecha);
         if(isset($stfecha[1])){
@@ -28,21 +41,33 @@ function comFecha($fecha){
 }
 
 
-//CONVERTIR FECHA PARA BD
+/**
+ * CONVERTIR FECHA PARA BD 
+ * @param string $fecha
+ * @return string
+ */
 function fechaParaDB($fecha){
     $stfecha= explode("/",$fecha);
     $fechaOrden=$stfecha[2].'-'.$stfecha[1].'-'.$stfecha[0];
     return $fechaOrden;
 }
 
-//CONVERTIR FECHA PARA FORMULARIO
+/**
+ * CONVERTIR FECHA PARA FORMULARIO 
+ * @param string $fecha
+ * @return string
+ */
 function fechaParaForm($fecha){
     $stfecha= explode("-",$fecha);
     $fechaOrden=$stfecha[2].'/'.$stfecha[1].'/'.$stfecha[0];
     return $fechaOrden;
 }
 
-//VERIFICA SI EL EMAIL RESPETA EL FORMATO  ALGO@ALGO.ES
+
+/**
+ * VERIFICA SI EL EMAIL RESPETA EL FORMATO  ALGO@ALGO.ES
+ * @param string $email
+ */
 function validarEmail($email){
     if(filter_var( $email , FILTER_VALIDATE_EMAIL)){}
         else{
