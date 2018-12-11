@@ -34,10 +34,6 @@
                               <label for="pwd">Rol del usuario: </label><br>
                               <input type="radio" name="rol" value="1" checked<?php if(isset($_POST["rol"])&&$_POST["rol"]=="1"){ echo 'checked';}?>> Psicologo
                               <input type="radio" name="rol" value="0" <?php if(isset($_POST["rol"])&&$_POST["rol"]=="0"){ echo 'checked';}?>> Administrador
-                              <?php if($errores->HayErrores() && isset($lista_errores['passw'])){   
-                                    echo "<td style=color:red;>".$lista_errores['passw'].'</td>';
-                                        }   
-                                ?>
                             </div>
                             <input class="btn btn-custom" type="submit" value="Registrar">
                           </form>  

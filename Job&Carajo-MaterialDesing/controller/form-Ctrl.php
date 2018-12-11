@@ -11,7 +11,7 @@ $lista_errores;
 $provincias=arrayProvincias();
 
 if(!$_POST){
-    include(VIEW_PATH.'formv2.php');
+    include(VIEW_PATH.'formulario.php');
 }
 else{
     
@@ -19,7 +19,7 @@ else{
 
     if($errores->HayErrores()){
         $lista_errores=$errores->listaErrores();
-        include(VIEW_PATH.'formv2.php');
+        include(VIEW_PATH.'formulario.php');
     }
     else{
         $_POST['fechaselec']=fechaParaDB($_POST['fechaselec']);

@@ -40,6 +40,6 @@ else{
     else{
         $datos=$_POST;
         updateEstado($_GET['a'],$datos);
-        include(CTRL_PATH.'inicio.php');
+        include(CTRL_PATH.'vistaofertas_ctrl.php');
     }
 }

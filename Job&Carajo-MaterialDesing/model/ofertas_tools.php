@@ -20,11 +20,24 @@ function insertarFormulario($datos){
         $sql="INSERT INTO ofertas (
         descripcion, personaContacto, telefonoContacto, email, direccion, poblacion, codigoPostal, provincia, estadoOferta,
         FechaConfirmacion, psicologo, candidato, anotaciones) 
-         VALUES ('$datos[descripcion]', '$datos[contacto]', '$datos[telefono]', '$datos[email]', '$datos[direccion]', '$datos[poblacion]',
-         '$datos[cp]', '$datos[provincia]', '$datos[estado]', '$datos[fechaselec]', '$datos[psicologo]', '$datos[candidato]',
-         '$datos[observaciones]')";
-    
-        $conn->db->query($sql);
+         VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+
+    $sentencia = $conn->db->prepare($sql);
+    $sentencia->bindParam(1, $datos['descripcion']);
+    $sentencia->bindParam(2, $datos['contacto']);
+    $sentencia->bindParam(3, $datos['telefono']);
+    $sentencia->bindParam(4, $datos['email']);
+    $sentencia->bindParam(5, $datos['direccion']);
+    $sentencia->bindParam(6, $datos['poblacion']);
+    $sentencia->bindParam(7, $datos['cp']);
+    $sentencia->bindParam(8, $datos['provincia']);
+    $sentencia->bindParam(9, $datos['estado']);
+    $sentencia->bindParam(10, $datos['fechaselec']);
+    $sentencia->bindParam(11, $datos['psicologo']);
+    $sentencia->bindParam(12, $datos['candidato']);
+    $sentencia->bindParam(13, $datos['observaciones']);
+
+    $sentencia->execute();
 }
 
 //DEVUELVE ARRAY DE PROVINCIAS
@@ -83,15 +96,29 @@ function borrarOferta($id){
 //MODIFICA LA TABLA DE OFERTAS
 function updateTable($id, $datos){
    $conn = Db::getInstance();
-   $sql = "UPDATE ofertas SET descripcion='$datos[descripcion]', personaContacto='$datos[contacto]',
-           telefonoContacto='$datos[telefono]',email='$datos[email]', direccion='$datos[direccion]',
-           poblacion='$datos[poblacion]', codigoPostal='$datos[cp]',provincia='$datos[provincia]',
-           estadoOferta='$datos[estado]', FechaConfirmacion='$datos[fechaselec]', psicologo='$datos[psicologo]',
-           candidato='$datos[candidato]', anotaciones='$datos[observaciones]'
+   $sql = "UPDATE ofertas SET descripcion= ?, personaContacto= ?,
+           telefonoContacto= ?,email= ?, direccion= ?,
+           poblacion= ?, codigoPostal= ?,provincia= ?,
+           estadoOferta= ?, FechaConfirmacion= ?, psicologo= ?,
+           candidato= ?, anotaciones= ?
            WHERE idOfertas = ?";
 
     $sentencia = $conn->db->prepare($sql);
-    $sentencia->bindParam(1, $id, PDO::PARAM_INT);
+    $sentencia->bindParam(1, $datos['descripcion']);
+    $sentencia->bindParam(2, $datos['contacto']);
+    $sentencia->bindParam(3, $datos['telefono']);
+    $sentencia->bindParam(4, $datos['email']);
+    $sentencia->bindParam(5, $datos['direccion']);
+    $sentencia->bindParam(6, $datos['poblacion']);
+    $sentencia->bindParam(7, $datos['cp']);
+    $sentencia->bindParam(8, $datos['provincia']);
+    $sentencia->bindParam(9, $datos['estado']);
+    $sentencia->bindParam(10, $datos['fechaselec']);
+    $sentencia->bindParam(11, $datos['psicologo']);
+    $sentencia->bindParam(12, $datos['candidato']);
+    $sentencia->bindParam(13, $datos['observaciones']);
+    $sentencia->bindParam(14, $id);
+
     $sentencia->execute();
 
 }

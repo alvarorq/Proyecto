@@ -29,13 +29,14 @@
 
             <ul class="list-unstyled">
               <li>
-                <img src="../resources/iconic/svg/map-marker.svg" class="icon" alt="map-marker">
+              <i class="fa fa-map-marker" style="font-size:20px;color:white"></i>
               </li>
               <li>
-                <img src="../resources/iconic/svg/envelope-closed.svg" class="icon" alt="envelope-closed">
+              <i class='far fa-envelope' style='font-size:20px;color:white'></i>
+
               </li>
               <li>
-                <img src="../resources/iconic/svg/code.svg" class="icon" alt="code">
+              <i class='fas fa-code' style='font-size:20px;color:white'></i>
               </li>
             </ul>
 

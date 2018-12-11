@@ -49,6 +49,6 @@ else{
         $_POST['fechaselec']=fechaParaDB($_POST['fechaselec']);
         $datos=$_POST;
         updateTable($_GET['a'],$datos);
-        include(CTRL_PATH.'inicio.php');
+        include(CTRL_PATH.'vistaofertas_ctrl.php');
     }
 }
