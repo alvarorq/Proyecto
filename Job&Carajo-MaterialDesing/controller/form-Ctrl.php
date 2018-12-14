@@ -11,7 +11,7 @@ $lista_errores;
 $provincias=arrayProvincias();
 
 if(!$_POST){
-    include(VIEW_PATH.'formulario.php');
+    include 'index.php';
 }
 else{
     
@@ -19,14 +19,11 @@ else{
 
     if($errores->HayErrores()){
         $lista_errores=$errores->listaErrores();
-        include(VIEW_PATH.'formulario.php');
+        include 'index.php';
     }
     else{
-        $_POST['fechaselec']=fechaParaDB($_POST['fechaselec']);
-        $datos=$_POST;
-        insertarFormulario($datos);
-        include(TEMPLATE_PATH.'alerta_exito.php');
-        include(CTRL_PATH.'vistaofertas_ctrl.php');
+        
+        include 'vista_ctrl.php');
     }
 }
 ?>
